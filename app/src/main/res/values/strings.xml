@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">RunNotebook</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Заготовок</string>
+    <string name="description">Описание</string>
+    <string name="Monday">Понедельник</string>
+    <string name="Tuesday">Вторник</string>
+    <string name="Wednesday">Среда</string>
+    <string name="Thursday">Четверг</string>
+    <string name="Friday">Пятница</string>
+    <string name="Saturday">Суббота</string>
+    <string name="Sunday">Воскресенье</string>
+    <string name="Calculate">Рассчитать</string>
+</resources>

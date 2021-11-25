@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_notebook">
+
+
+    <EditText
+        android:id="@+id/km"
+        android:layout_width="285dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:drawable/editbox_background"
+        android:ems="10"
+        android:hint="Километры"
+        android:inputType="number"
+        android:paddingStart="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:background="@android:drawable/editbox_background"
+        android:id="@+id/metr"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Метры"
+        android:inputType="number"
+        android:paddingStart="5dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/km"
+        app:layout_constraintStart_toStartOf="@+id/km"
+        app:layout_constraintTop_toBottomOf="@+id/km" />
+
+    <EditText
+        android:background="@android:drawable/editbox_background"
+        android:id="@+id/hour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Часы"
+        android:inputType="number"
+        android:paddingStart="5dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/metr"
+        app:layout_constraintStart_toStartOf="@+id/metr"
+        app:layout_constraintTop_toBottomOf="@+id/metr" />
+
+    <EditText
+        android:background="@android:drawable/editbox_background"
+        android:id="@+id/minutes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Минуты"
+        android:inputType="number"
+        android:paddingStart="5dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/hour"
+        app:layout_constraintStart_toStartOf="@+id/hour"
+        app:layout_constraintTop_toBottomOf="@+id/hour" />
+
+    <EditText
+        android:background="@android:drawable/editbox_background"
+        android:id="@+id/second"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Секунды"
+        android:inputType="number"
+        android:paddingStart="5dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/minutes"
+        app:layout_constraintStart_toStartOf="@+id/minutes"
+        app:layout_constraintTop_toBottomOf="@+id/minutes" />
+
+    <TextView
+        android:id="@+id/itog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@android:drawable/editbox_background"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/second" />
+
+    <Button
+        android:id="@+id/button_result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="@string/Calculate"
+        app:layout_constraintEnd_toEndOf="@+id/second"
+        app:layout_constraintStart_toStartOf="@+id/second"
+        app:layout_constraintTop_toBottomOf="@+id/itog" />
+</androidx.constraintlayout.widget.ConstraintLayout>

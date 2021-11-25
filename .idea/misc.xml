@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/drawable-anydpi/ic_add.xml" value="0.1648148148148148" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/drawable-anydpi/ic_delete.xml" value="0.1648148148148148" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/drawable-anydpi/ic_save.xml" value="0.1648148148148148" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/drawable/ic_home.xml" value="0.15462962962962962" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_calculator.xml" value="0.24722222222222223" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_detail_note.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_detail_photo.xml" value="0.20833333333333334" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_detail_training.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_notebook.xml" value="0.24722222222222223" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_photo.xml" value="0.24722222222222223" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_train.xml" value="0.24722222222222223" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/notebook_item.xml" value="0.23333333333333334" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/photo_item.xml" value="0.20833333333333334" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/test.xml" value="0.2" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/menu/botton_nav_menu.xml" value="0.24722222222222223" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
