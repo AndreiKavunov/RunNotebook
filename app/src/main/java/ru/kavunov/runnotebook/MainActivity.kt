@@ -1,17 +1,19 @@
 package ru.kavunov.runnotebook
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import ru.kavunov.runnotebook.Interface.OnClickTraining
+import ru.kavunov.runnotebook.MVVM.ViewModel.DialogViewModel
 
-class MainActivity : AppCompatActivity(), OnClickNotebook, OnClickAdapterNotebook, OnClickPhoto,
-OnClickAdapterPhoto, OnClickTraining {
+class MainActivity : AppCompatActivity(){
 
     private var notebookFragment: NotebookFragment? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -68,40 +70,16 @@ OnClickAdapterPhoto, OnClickTraining {
             .replace(R.id.main_cont_fragment, TrainFragment())
             .commit()
     }
+    override fun onBackPressed(){
+        val count = supportFragmentManager.backStackEntryCount
 
-    override fun transitionDetailNotebook() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_cont_fragment, DetailNoteFragment.newInstance("new", 111))
-            .addToBackStack(null)
-            .commit()
+        if (count == 0) {
+//            super.onBackPressed()
+            supportFragmentManager.let { QuitDialog().show(it, "TAG") }
+        } else {
+            supportFragmentManager.popBackStack()
+        }
+
     }
 
-    override fun transitionAdapterDetailNotebook(id: Long) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_cont_fragment, DetailNoteFragment.newInstance("change", id))
-            .addToBackStack(null)
-            .commit()
-    }
-
-    override fun transitionDetailPhoto() {
-         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_cont_fragment, DetailPhotoFragment.newInstance("new", 111))
-            .addToBackStack(null)
-            .commit()
-    }
-
-    override fun transitionAdapterDetailPhoto(imageView : ImageView, id: Long) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_cont_fragment, DetailPhotoFragment.newInstance("change", id))
-            .addToBackStack(null)
-//            .addSharedElement(imageView, id.toString())
-            .commit()
-    }
-
-    override fun transitionDetailTraining(day: Long) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_cont_fragment, DetailTrainingFragment.newInstance(day))
-            .addToBackStack(null)
-            .commit()
-    }
-}
+   }

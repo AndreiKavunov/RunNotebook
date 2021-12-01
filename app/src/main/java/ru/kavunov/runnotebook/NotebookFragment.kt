@@ -2,7 +2,6 @@ package ru.kavunov.runnotebook
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,8 +24,7 @@ class NotebookFragment : Fragment() {
     private var mode: String? = null
     private var id: Long? = null
     private val notebookViewModel: NotebookViewModel by viewModels()
-    private var onClickNotebook: OnClickNotebook? = null
-    private val notebookAdapter = NotebookAdapter()
+    private val notebookAdapter = NotebookAdapter(::transitionAdapterDetail)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +32,6 @@ class NotebookFragment : Fragment() {
             mode = it.getString(ARG_PARAM1)
             id = it.getLong(ARG_PARAM2)
                  }
-        Log.d("tag", mode.toString())
     }
 
     override fun onCreateView(
@@ -45,53 +42,21 @@ class NotebookFragment : Fragment() {
         val rc_notebook = view.findViewById<RecyclerView>(R.id.rc_noteB)
         notebookViewModel.loadNotebook()
         notebookViewModel.listnotebook.observe(requireActivity(), Observer(notebookAdapter::initData))
-//        when(mode){
-//            "add" -> notebookViewModel.listnotebook.observe(requireActivity(), Observer(notebookAdapter::addData))
-////            "del" -> notebookViewModel.listnotebook.observe(requireActivity(), Observer(notebookAdapter::removeItem))
-//            "del" -> notebookAdapter.removeItem(id!!.toInt())
-//            else -> notebookViewModel.listnotebook.observe(requireActivity(), Observer(notebookAdapter::initData))
-//        }
 
-        rc_notebook.layoutManager = LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false)
+        rc_notebook.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         rc_notebook.adapter = notebookAdapter
-        rc_notebook.itemAnimator = LandingAnimator(OvershootInterpolator(1f))
-        rc_notebook.itemAnimator?.apply {
 
-            addDuration = 1000
-            removeDuration = 1000
-            moveDuration = 1000
-            changeDuration = 1000
-        }
         view.findViewById<FloatingActionButton>(R.id.transition_detail_not_button)?.apply {
             setOnClickListener{
-                onClickNotebook?.transitionDetailNotebook()
-                var tim = System.currentTimeMillis()
-                Log.d("tag",tim.toString())
-                convertLongToTime(tim)
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.main_cont_fragment, DetailNoteFragment.newInstance("new", 1))
+                    ?.addToBackStack("Notebook")
+                    ?.commit()
             }
         }
 
 
         return view
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnClickNotebook){
-            onClickNotebook = context
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        onClickNotebook = null
-    }
-
-    fun convertLongToTime(time: Long): String {
-        val date = Date(time)
-        val format = SimpleDateFormat("dd.MM.yyyy HH:mm")
-//        val format = SimpleDateFormat("dd-MM-yy kk:mm")
-        return format.format(date)
     }
 
     companion object {
@@ -103,6 +68,12 @@ class NotebookFragment : Fragment() {
                     putLong(ARG_PARAM2, param2)
                            }
             }
+    }
+    fun transitionAdapterDetail(id: Long) {
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.main_cont_fragment, DetailNoteFragment.newInstance("change", id))
+            ?.addToBackStack("Notebook")
+            ?.commit()
     }
 
 }

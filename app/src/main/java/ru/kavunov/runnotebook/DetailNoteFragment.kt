@@ -55,9 +55,11 @@ class DetailNoteFragment : Fragment() {
                 if(title.text.toString() != ""){
             detailNbViewModel.insertNotebook(title.text.toString(), deckription.text.toString(),
                 System.currentTimeMillis())
-                getActivity()?.supportFragmentManager?.beginTransaction()
+                activity?.supportFragmentManager?.popBackStack()
+                activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_cont_fragment, NotebookFragment.newInstance("add", 1))
                     ?.commit()
+
                               }
                 else{
                     title.hint = "Введите заголовок заметки"
@@ -70,7 +72,7 @@ class DetailNoteFragment : Fragment() {
                         System.currentTimeMillis()
                     )
 
-                    getActivity()?.onBackPressed()
+                    activity?.onBackPressed()
                 }
                 else{
                     title.hint = "Введите заголовок заметки"
@@ -81,9 +83,11 @@ class DetailNoteFragment : Fragment() {
 
         buttonDelete.setOnClickListener{
             id?.let { it1 -> detailNbViewModel.deleteNotebook(it1)
-                getActivity()?.supportFragmentManager?.beginTransaction()
+                activity?.supportFragmentManager?.popBackStack()
+                activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_cont_fragment, NotebookFragment.newInstance("del", it1))
                     ?.commit()
+
             }
         }
 

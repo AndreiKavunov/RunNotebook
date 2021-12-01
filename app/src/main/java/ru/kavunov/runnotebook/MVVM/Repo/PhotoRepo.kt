@@ -4,7 +4,7 @@ import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import ru.kavunov.runnotebook.MVVM.Model.PhotoModel
-import ru.kavunov.runnotebook.bd.PhotoTable
+import ru.kavunov.runnotebook.bd.PhotoNoteBTable
 
 class PhotoRepo {
     suspend fun refreshData(context: Context, onDataReadyCallbackPhoto: OnDataReadyCallbackPhoto)= withContext(
@@ -14,9 +14,10 @@ class PhotoRepo {
         if (listPhoto != null) {
             onDataReadyCallbackPhoto.onDataReadyP(listPhoto)
         }
+
     }
 }
 interface OnDataReadyCallbackPhoto {
-    fun onDataReadyP(data: List<PhotoTable>)
+    fun onDataReadyP(data: List<PhotoNoteBTable>)
 
 }

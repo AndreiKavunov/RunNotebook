@@ -1,6 +1,5 @@
 package ru.kavunov.runnotebook
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,13 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import ru.kavunov.runnotebook.Interface.OnClickTraining
 import ru.kavunov.runnotebook.MVVM.ViewModel.TrainingViewModel
 import ru.kavunov.runnotebook.bd.TrainingTable
 
 class TrainFragment : Fragment() {
 
-    private var onClickTraining: OnClickTraining? = null
     private val trainingViewModel: TrainingViewModel by viewModels()
 
     override fun onCreateView(
@@ -27,25 +24,25 @@ class TrainFragment : Fragment() {
         trainingViewModel.listtraining.observe(requireActivity(), Observer(::initData))
 
         view.findViewById<TextView>(R.id.day1).setOnClickListener {
-            onClickTraining?.transitionDetailTraining(1)
+            transitionDetailTraining(1)
         }
         view.findViewById<TextView>(R.id.day2).setOnClickListener {
-            onClickTraining?.transitionDetailTraining(2)
+            transitionDetailTraining(2)
         }
         view.findViewById<TextView>(R.id.day3).setOnClickListener {
-            onClickTraining?.transitionDetailTraining(3)
+            transitionDetailTraining(3)
         }
         view.findViewById<TextView>(R.id.day4).setOnClickListener {
-            onClickTraining?.transitionDetailTraining(4)
+            transitionDetailTraining(4)
         }
         view.findViewById<TextView>(R.id.day5).setOnClickListener {
-            onClickTraining?.transitionDetailTraining(5)
+            transitionDetailTraining(5)
         }
         view.findViewById<TextView>(R.id.day6).setOnClickListener {
-            onClickTraining?.transitionDetailTraining(6)
+            transitionDetailTraining(6)
         }
         view.findViewById<TextView>(R.id.day7).setOnClickListener {
-            onClickTraining?.transitionDetailTraining(7)
+            transitionDetailTraining(7)
         }
 
         return view
@@ -63,16 +60,12 @@ class TrainFragment : Fragment() {
             }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnClickTraining){
-            onClickTraining = context
-        }
-    }
 
-    override fun onDetach() {
-        super.onDetach()
-        onClickTraining = null
+    fun transitionDetailTraining(day: Long) {
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.main_cont_fragment, DetailTrainingFragment.newInstance(day))
+            ?.addToBackStack("Training")
+            ?.commit()
     }
 
 }

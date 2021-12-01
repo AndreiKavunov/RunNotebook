@@ -1,13 +1,11 @@
 package ru.kavunov.runnotebook
 
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import java.math.BigDecimal
 
@@ -24,11 +22,11 @@ class CalculatorFragment : Fragment() {
         view.findViewById<Button>(R.id.button_result).setOnClickListener {
             try {
                 val result = view.findViewById<TextView>(R.id.itog)
-                var kilometr = proverka(view.findViewById<TextView>(R.id.km).text.toString())
-                var metr = proverka(view.findViewById<TextView>(R.id.metr).text.toString())
-                var hour = proverka(view.findViewById<TextView>(R.id.hour).text.toString())
-                var minuts = proverka(view.findViewById<TextView>(R.id.minutes).text.toString())
-                var second = proverka(view.findViewById<TextView>(R.id.second).text.toString())
+                var kilometr = dataСhecking(view.findViewById<TextView>(R.id.km).text.toString())
+                var metr = dataСhecking(view.findViewById<TextView>(R.id.metr).text.toString())
+                var hour = dataСhecking(view.findViewById<TextView>(R.id.hour).text.toString())
+                var minuts = dataСhecking(view.findViewById<TextView>(R.id.minutes).text.toString())
+                var second = dataСhecking(view.findViewById<TextView>(R.id.second).text.toString())
 
                 val dist_metr = kilometr.toInt()*1000 + metr.toInt()
                 val time_sek = hour.toInt()*3600 + minuts.toInt()*60 + second.toInt()
@@ -48,15 +46,11 @@ class CalculatorFragment : Fragment() {
             catch (e: Exception) {
                 view.findViewById<TextView>(R.id.itog).text = "Проверьте введенные данные"
             }
-
-
         }
-
-
         return view
     }
 
-    fun proverka(x: String): String {
+    fun dataСhecking(x: String): String {
         var y = ""
         if(x == "") y = "0"
         else y = x

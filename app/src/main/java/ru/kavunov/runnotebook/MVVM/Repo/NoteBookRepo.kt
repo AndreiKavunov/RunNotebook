@@ -23,12 +23,12 @@ interface OnDataReadyCallbackNotebook{
 
 suspend fun startBd(context: Context)= withContext(Dispatchers.IO){
     if(TrainingModel.getAll(context)?.size == 0){
-        TrainingModel.insertData(context, 1, "Понедельник", "empty")
-        TrainingModel.insertData(context, 2, "Вторник", "empty")
-        TrainingModel.insertData(context, 3, "Среда", "empty")
-        TrainingModel.insertData(context, 4, "Четверг", "empty")
-        TrainingModel.insertData(context, 5, "Пятница", "empty")
-        TrainingModel.insertData(context, 6, "Суббота", "empty")
-        TrainingModel.insertData(context, 7, "Воскресенье", "empty")
+        TrainingModel.insertData(context, 1, "Понедельник", "Отдых")
+        TrainingModel.insertData(context, 2, "Вторник", "Отдых")
+        TrainingModel.insertData(context, 3, "Среда", "Отдых")
+        TrainingModel.insertData(context, 4, "Четверг", "Отдых")
+        TrainingModel.insertData(context, 5, "Пятница", "Отдых")
+        TrainingModel.insertData(context, 6, "Суббота", "Отдых")
+        TrainingModel.insertData(context, 7, "Воскресенье", "Отдых")
 
     }    }

@@ -3,9 +3,7 @@ package ru.kavunov.runnotebook.MVVM.Repo
 import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import ru.kavunov.runnotebook.MVVM.Model.PhotoModel
 import ru.kavunov.runnotebook.MVVM.Model.TrainingModel
-import ru.kavunov.runnotebook.bd.PhotoTable
 import ru.kavunov.runnotebook.bd.TrainingTable
 
 class DetailTrainingRepo (id: Long) {

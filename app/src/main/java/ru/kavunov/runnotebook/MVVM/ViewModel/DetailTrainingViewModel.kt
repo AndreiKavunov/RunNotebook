@@ -7,13 +7,9 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ru.kavunov.runnotebook.MVVM.Model.PhotoModel
 import ru.kavunov.runnotebook.MVVM.Model.TrainingModel
-import ru.kavunov.runnotebook.MVVM.Repo.DetailPhotoRepo
 import ru.kavunov.runnotebook.MVVM.Repo.DetailTrainingRepo
-import ru.kavunov.runnotebook.MVVM.Repo.OnDataReadyCallbackPhotoDet
 import ru.kavunov.runnotebook.MVVM.Repo.OnDataReadyCallbackTrainDet
-import ru.kavunov.runnotebook.bd.PhotoTable
 import ru.kavunov.runnotebook.bd.TrainingTable
 
 class DetailTrainingViewModel (application: Application) : AndroidViewModel(application){

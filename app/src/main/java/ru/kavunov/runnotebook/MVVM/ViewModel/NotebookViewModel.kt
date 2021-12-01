@@ -27,7 +27,7 @@ class NotebookViewModel(application: Application) : AndroidViewModel(application
             noteBookRepo.refreshData(getApplication(), object: OnDataReadyCallbackNotebook {
                  override fun onDataReadyN(data: List<NotebookTable>) {
                      _listnotebook.postValue(data)
-//                     Log.d("tag",data?.get(0).dataTime.toString())
+
                 }
             }
             )}}
