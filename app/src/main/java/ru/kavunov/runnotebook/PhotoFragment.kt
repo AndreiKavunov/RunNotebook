@@ -44,12 +44,14 @@ class PhotoFragment : Fragment() {
             ?.replace(R.id.main_cont_fragment, DetailPhotoFragment.newInstance("new", 111))
             ?.addToBackStack("Photo")
             ?.commit()
+        Frag.display = ConstanceFragment.DETAIL_PHOTO
     }
     fun transitionAdapterDetailPhoto(id: Long) {
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.main_cont_fragment, DetailPhotoFragment.newInstance("change", id))
             ?.addToBackStack("Photo")
             ?.commit()
+        Frag.display = ConstanceFragment.DETAIL_PHOTO
     }
 
 }

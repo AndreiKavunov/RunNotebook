@@ -46,6 +46,7 @@ class DetailTrainingFragment : Fragment() {
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_cont_fragment, TrainFragment())
                     ?.commit()
+                Frag.display = ConstanceFragment.BOT_NAV
 
             }
         }

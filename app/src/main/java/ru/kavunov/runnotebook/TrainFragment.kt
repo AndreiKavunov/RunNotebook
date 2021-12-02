@@ -66,6 +66,7 @@ class TrainFragment : Fragment() {
             ?.replace(R.id.main_cont_fragment, DetailTrainingFragment.newInstance(day))
             ?.addToBackStack("Training")
             ?.commit()
+        Frag.display = ConstanceFragment.DETAIL_TRAIN
     }
 
 }

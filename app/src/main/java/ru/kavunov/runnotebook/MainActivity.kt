@@ -1,8 +1,11 @@
 package ru.kavunov.runnotebook
 
+import android.app.Application
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.Observer
@@ -13,11 +16,12 @@ import ru.kavunov.runnotebook.MVVM.ViewModel.DialogViewModel
 class MainActivity : AppCompatActivity(){
 
     private var notebookFragment: NotebookFragment? = null
-
+    private lateinit var dialogViewModel: DialogViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING)
+        dialogViewModel = ViewModelProvider(this).get(DialogViewModel::class.java)
         val boNav = findViewById<BottomNavigationView>(R.id.BotNavV)
         boNav.setOnNavigationItemSelectedListener {
             when(it.itemId){
@@ -54,32 +58,29 @@ class MainActivity : AppCompatActivity(){
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_cont_fragment, NotebookFragment())
             .commit()
+        Frag.display = ConstanceFragment.BOT_NAV
     }
     fun launchPhoto() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_cont_fragment, PhotoFragment())
             .commit()
+        Frag.display = ConstanceFragment.BOT_NAV
     }
     fun launchCalc() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_cont_fragment, CalculatorFragment())
             .commit()
+        Frag.display = ConstanceFragment.BOT_NAV
     }
     fun launchTrain() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_cont_fragment, TrainFragment())
             .commit()
+        Frag.display = ConstanceFragment.BOT_NAV
     }
-    override fun onBackPressed(){
-        val count = supportFragmentManager.backStackEntryCount
 
-        if (count == 0) {
-//            super.onBackPressed()
-            supportFragmentManager.let { QuitDialog().show(it, "TAG") }
-        } else {
-            supportFragmentManager.popBackStack()
-        }
-
-    }
 
    }
+object Frag{
+    var display: String = ""
+}

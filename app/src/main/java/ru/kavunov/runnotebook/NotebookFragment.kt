@@ -52,6 +52,7 @@ class NotebookFragment : Fragment() {
                     ?.replace(R.id.main_cont_fragment, DetailNoteFragment.newInstance("new", 1))
                     ?.addToBackStack("Notebook")
                     ?.commit()
+                Frag.display = ConstanceFragment.DETAIL_NOTE
             }
         }
 
@@ -74,6 +75,7 @@ class NotebookFragment : Fragment() {
             ?.replace(R.id.main_cont_fragment, DetailNoteFragment.newInstance("change", id))
             ?.addToBackStack("Notebook")
             ?.commit()
+        Frag.display = ConstanceFragment.DETAIL_NOTE
     }
 
 }

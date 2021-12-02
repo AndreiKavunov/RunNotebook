@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -44,7 +45,8 @@ class DetailNoteFragment : Fragment() {
         val deckription = view.findViewById<TextView>(R.id.det_deckrip_id)
         if(mode == "new"){
             time.visibility = View.GONE
-            buttonDelete.visibility = View.GONE}
+            buttonDelete.visibility = View.GONE
+        }
         if(mode == "change"){
             id?.let { detailNbViewModel.loadNotebook(it) }
             detailNbViewModel.notebookTable.observe(requireActivity(), Observer(::viewDetail))
@@ -59,6 +61,7 @@ class DetailNoteFragment : Fragment() {
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_cont_fragment, NotebookFragment.newInstance("add", 1))
                     ?.commit()
+                    Frag.display = ConstanceFragment.BOT_NAV
 
                               }
                 else{
@@ -73,6 +76,7 @@ class DetailNoteFragment : Fragment() {
                     )
 
                     activity?.onBackPressed()
+                    Frag.display = ConstanceFragment.BOT_NAV
                 }
                 else{
                     title.hint = "Введите заголовок заметки"
@@ -87,6 +91,7 @@ class DetailNoteFragment : Fragment() {
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_cont_fragment, NotebookFragment.newInstance("del", it1))
                     ?.commit()
+                Frag.display = ConstanceFragment.BOT_NAV
 
             }
         }

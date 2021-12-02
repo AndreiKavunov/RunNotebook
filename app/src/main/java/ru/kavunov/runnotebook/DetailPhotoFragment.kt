@@ -31,11 +31,8 @@ import android.opengl.ETC1.getHeight
 
 import android.view.View.MeasureSpec
 import android.opengl.ETC1.getHeight
-
-
-
-
-
+import android.view.WindowManager
+import android.widget.Toast.LENGTH_LONG
 
 
 private const val ARG_PARAM1 = "param1"
@@ -45,7 +42,10 @@ val imageRequestCode = 10
 class DetailPhotoFragment : Fragment() {
     private var mode: String? = null
     private var photoId: Long? = null
-
+    var listImgUri: MutableList<PhotoTables> = ArrayList()
+    var position: Int? = 0
+    var startListPhoto: MutableList<PhotoTables> = ArrayList()
+    var startTitle = ""
     private lateinit var dialogViewModel: DialogViewModel
     val detailPhotoViewModel: DetailPhotoViewModel by viewModels()
     val adapterPhoto = PhotoDetAdapter(::showDialog, ::transitionOnlyPhoto)
@@ -58,15 +58,15 @@ class DetailPhotoFragment : Fragment() {
             photoId = it.getLong(ARG_PARAM2)
 
         }
-        Test.listImgUri.clear()
+        listImgUri.clear()
 
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == Activity.RESULT_OK && requestCode == imageRequestCode){
             var photoTables = PhotoTables(1, data?.data.toString(), 1)
-            Test.listImgUri.add(photoTables)
-            adapterPhoto.initData(Test.listImgUri)
+            listImgUri.add(photoTables)
+            adapterPhoto.initData(listImgUri)
             activity?.contentResolver?.takePersistableUriPermission(data?.data!!, Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
     }
@@ -103,8 +103,22 @@ class DetailPhotoFragment : Fragment() {
         }
 
         dialogViewModel = ViewModelProvider(requireActivity()).get(DialogViewModel::class.java)
-        dialogViewModel.name.observe(requireActivity(), Observer {
-               if(it=="delete"){adapterPhoto.initData(Test.listImgUri)}
+        dialogViewModel.name.observe(requireActivity(), Observer { it ->
+            if(it==ConstanceMessageVM.DELETE_PHOTO){
+                   position?.let { listImgUri.removeAt(it) }
+                   adapterPhoto.initData(listImgUri)
+               }
+
+            if(it==ConstanceMessageVM.CHANGE_PHOTO){
+//                if(startListPhoto == listImgUri && startTitle == view?.findViewById<TextView>(R.id.photo_text)?.text){
+                if(startListPhoto == listImgUri){
+                    activity?.supportFragmentManager?.popBackStack()
+
+                }
+                else{
+                    activity?.supportFragmentManager?.let { SaveDialog().show(it, "SAVE") }
+                }
+            }
         })
 
         buttonAdd.setOnClickListener {
@@ -119,24 +133,30 @@ class DetailPhotoFragment : Fragment() {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.main_cont_fragment, PhotoFragment())
                 ?.commit()
+            Frag.display = ConstanceFragment.BOT_NAV
 
         }
 
         buttonSave.setOnClickListener{
-            if(Test.listImgUri.size > 0){
+            if(listImgUri.size > 0){
                 if(mode == "new"){
-                detailPhotoViewModel.insertPhoto(title.text.toString(),"null",  System.currentTimeMillis(), Test.listImgUri)
+                detailPhotoViewModel.insertPhoto(title.text.toString(),"null",  System.currentTimeMillis(), listImgUri)
 
             }
                 else{detailPhotoViewModel.updatetPhoto(id = photoId!!, title = title.text.toString(), photo= "null",
-                    System.currentTimeMillis(), Test.listImgUri)
+                    System.currentTimeMillis(), listImgUri)
 
                 }
                 activity?.supportFragmentManager?.popBackStack()
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_cont_fragment, PhotoFragment())
                     ?.commit()
+                Frag.display = ConstanceFragment.BOT_NAV
 
+
+            }
+            else{
+                Toast.makeText(requireActivity(), "Выберите фото", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -144,16 +164,20 @@ class DetailPhotoFragment : Fragment() {
     }
     fun viewDetail(photoNoteBTable: PhotoNoteBTable){
         view?.findViewById<TextView>(R.id.photo_text)?.text = photoNoteBTable.title
+        startTitle = photoNoteBTable.title.toString()
     }
 
      fun updateListImgUri(list: List<PhotoTables>){
-         Test.listImgUri.clear()
-         Test.listImgUri.addAll(list)
+         listImgUri.clear()
+         listImgUri.addAll(list)
+         startListPhoto.clear()
+         startListPhoto.addAll(list)
      }
 
-    fun showDialog(position: Int) {
+    fun showDialog(pos: Int) {
         activity?.supportFragmentManager?.let { DeleteDialog().show(it, "TAG") }
-        Test.position = position
+        position = pos
+        Frag.display = ConstanceFragment.DIALOG_DEL
     }
 
     fun transitionOnlyPhoto(id: Long) {
@@ -161,6 +185,7 @@ class DetailPhotoFragment : Fragment() {
             ?.replace(R.id.main_cont_fragment, OnlyPhotoFragment.newInstance(id))
             ?.addToBackStack("DetailPhoto")
             ?.commit()
+        Frag.display = ConstanceFragment.ONLY_PHOTO
     }
 
     companion object {
@@ -179,8 +204,5 @@ class DetailPhotoFragment : Fragment() {
 
 
 }
-object Test{
-    var listImgUri: MutableList<PhotoTables> = ArrayList()
-    var position: Int? = 0
-}
+
 

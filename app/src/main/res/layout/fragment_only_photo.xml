@@ -17,7 +17,7 @@
             android:id="@+id/imageId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/no_photo"
+            tools:src="@drawable/no_photo"
             app:zoomage_animateOnReset="true"
             app:zoomage_autoCenter="true"
             app:zoomage_autoResetMode="UNDER"

@@ -9,20 +9,20 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import ru.kavunov.runnotebook.MVVM.ViewModel.DialogViewModel
 
-class DeleteDialog: DialogFragment() {
+class SaveDialog: DialogFragment() {
 
     private lateinit var dialogViewModel: DialogViewModel
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.delete_dialog_fragment, container, false)
+        val view = inflater.inflate(R.layout.save_dialog_fragment, container, false)
         dialogViewModel = ViewModelProvider(requireActivity()).get(DialogViewModel::class.java)
 
         view.findViewById<Button>(R.id.buttonNo).setOnClickListener{
             dismiss()
-                    }
+        }
 
         view.findViewById<Button>(R.id.buttonYes).setOnClickListener {
 //            Test.position?.let { Test.listImgUri.removeAt(it) }
-            dialogViewModel.sendName(ConstanceMessageVM.DELETE_PHOTO)
+            dialogViewModel.sendName("delete")
             dismiss()
         }
 
