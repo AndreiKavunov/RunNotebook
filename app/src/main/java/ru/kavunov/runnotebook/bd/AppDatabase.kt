@@ -9,7 +9,7 @@ import androidx.room.TypeConverters
 @Database(entities = [NotebookTable::class, PhotoNoteBTable::class, TrainingTable::class, PhotoTables::class], version = 27)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun notebookDAO(): NotebookDAO
+    abstract fun notebookDAO(): NotesDAO
     abstract fun photoNotBDAO(): PhotoNotBDAO
     abstract fun photoDAO(): PhotoDAO
     abstract fun trainDAO(): TrainDAO

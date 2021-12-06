@@ -3,14 +3,14 @@ package ru.kavunov.runnotebook.MVVM
 import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import ru.kavunov.runnotebook.MVVM.Model.NotebookModel
+import ru.kavunov.runnotebook.MVVM.Model.NotesModel
 import ru.kavunov.runnotebook.MVVM.Model.TrainingModel
 import ru.kavunov.runnotebook.bd.NotebookTable
 
 class NoteBookRepo (){
     suspend fun refreshData(context: Context, onDataReadyCallbackNotebook: OnDataReadyCallbackNotebook)= withContext(Dispatchers.IO){
         startBd(context)
-        val listNotebook = NotebookModel.getAll(context)
+        val listNotebook = NotesModel.getAll(context)
         if (listNotebook != null) {
             onDataReadyCallbackNotebook.onDataReadyN(listNotebook)
         }

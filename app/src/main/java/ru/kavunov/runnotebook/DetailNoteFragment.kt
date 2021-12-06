@@ -1,16 +1,14 @@
 package ru.kavunov.runnotebook
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import ru.kavunov.runnotebook.MVVM.ViewModel.DetailNbViewModel
+import ru.kavunov.runnotebook.MVVM.ViewModel.DetailNotesViewModel
 import androidx.lifecycle.Observer
 import ru.kavunov.runnotebook.bd.NotebookTable
 import java.text.SimpleDateFormat
@@ -23,7 +21,7 @@ class DetailNoteFragment : Fragment() {
 
     private var mode: String? = null
     private var id: Long? = null
-    private val detailNbViewModel: DetailNbViewModel by viewModels()
+    private val detailNotesViewModel: DetailNotesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,14 +46,14 @@ class DetailNoteFragment : Fragment() {
             buttonDelete.visibility = View.GONE
         }
         if(mode == "change"){
-            id?.let { detailNbViewModel.loadNotebook(it) }
-            detailNbViewModel.notebookTable.observe(requireActivity(), Observer(::viewDetail))
+            id?.let { detailNotesViewModel.loadNotebook(it) }
+            detailNotesViewModel.notebookTable.observe(requireActivity(), Observer(::viewDetail))
         }
 
         buttonSave.setOnClickListener{
             if(mode == "new"){
                 if(title.text.toString() != ""){
-            detailNbViewModel.insertNotebook(title.text.toString(), deckription.text.toString(),
+            detailNotesViewModel.insertNotebook(title.text.toString(), deckription.text.toString(),
                 System.currentTimeMillis())
                 activity?.supportFragmentManager?.popBackStack()
                 activity?.supportFragmentManager?.beginTransaction()
@@ -70,7 +68,7 @@ class DetailNoteFragment : Fragment() {
                 }
             else {
                 if (title.text.toString() != "") {
-                    detailNbViewModel.updatetNotebook(
+                    detailNotesViewModel.updatetNotebook(
                         id!!, title.text.toString(), deckription.text.toString(),
                         System.currentTimeMillis()
                     )
@@ -86,7 +84,7 @@ class DetailNoteFragment : Fragment() {
                  }
 
         buttonDelete.setOnClickListener{
-            id?.let { it1 -> detailNbViewModel.deleteNotebook(it1)
+            id?.let { it1 -> detailNotesViewModel.deleteNotebook(it1)
                 activity?.supportFragmentManager?.popBackStack()
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_cont_fragment, NotebookFragment.newInstance("del", it1))

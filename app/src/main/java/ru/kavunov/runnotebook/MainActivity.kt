@@ -78,6 +78,17 @@ class MainActivity : AppCompatActivity(){
             .commit()
         Frag.display = ConstanceFragment.BOT_NAV
     }
+    override fun onBackPressed(){
+        val count = supportFragmentManager.backStackEntryCount
+
+        if (count == 0) {
+//            super.onBackPressed()
+            supportFragmentManager.let { QuitDialog().show(it, "TAG") }
+        } else {
+            supportFragmentManager.popBackStack()
+        }
+
+    }
 
 
    }

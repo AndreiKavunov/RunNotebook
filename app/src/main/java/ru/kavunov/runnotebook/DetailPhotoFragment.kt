@@ -109,16 +109,16 @@ class DetailPhotoFragment : Fragment() {
                    adapterPhoto.initData(listImgUri)
                }
 
-            if(it==ConstanceMessageVM.CHANGE_PHOTO){
-//                if(startListPhoto == listImgUri && startTitle == view?.findViewById<TextView>(R.id.photo_text)?.text){
-                if(startListPhoto == listImgUri){
-                    activity?.supportFragmentManager?.popBackStack()
-
-                }
-                else{
-                    activity?.supportFragmentManager?.let { SaveDialog().show(it, "SAVE") }
-                }
-            }
+//            if(it==ConstanceMessageVM.CHANGE_PHOTO){
+////                if(startListPhoto == listImgUri && startTitle == view?.findViewById<TextView>(R.id.photo_text)?.text){
+//                if(startListPhoto == listImgUri){
+//                    activity?.supportFragmentManager?.popBackStack()
+//
+//                }
+//                else{
+//                    activity?.supportFragmentManager?.let { SaveDialog().show(it, "SAVE") }
+//                }
+//            }
         })
 
         buttonAdd.setOnClickListener {
@@ -197,9 +197,6 @@ class DetailPhotoFragment : Fragment() {
                 }
             }
     }
-
-
-
 
 
 

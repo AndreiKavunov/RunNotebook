@@ -7,7 +7,7 @@ import ru.kavunov.runnotebook.bd.AppDatabase
 import ru.kavunov.runnotebook.bd.NotebookTable
 import java.util.*
 
-class NotebookModel {
+class NotesModel {
 
     companion object {
 

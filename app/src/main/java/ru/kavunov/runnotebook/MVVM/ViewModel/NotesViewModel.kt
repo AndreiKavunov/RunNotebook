@@ -13,7 +13,7 @@ import ru.kavunov.runnotebook.MVVM.NoteBookRepo
 import ru.kavunov.runnotebook.MVVM.OnDataReadyCallbackNotebook
 import ru.kavunov.runnotebook.bd.NotebookTable
 
-class NotebookViewModel(application: Application) : AndroidViewModel(application) {
+class NotesViewModel(application: Application) : AndroidViewModel(application) {
 
     lateinit var noteBookRepo: NoteBookRepo
 

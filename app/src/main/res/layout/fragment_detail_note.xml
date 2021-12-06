@@ -74,13 +74,13 @@
         android:id="@+id/det_delete_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:clickable="true"
         android:src="@drawable/ic_delete"
         app:backgroundTint="@color/purple_700"
-        app:layout_constraintBottom_toBottomOf="@+id/det_deckrip_id"
-        app:layout_constraintEnd_toEndOf="@+id/det_deckrip_id"
+        app:layout_constraintBottom_toTopOf="@+id/det_save_id"
+        app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
