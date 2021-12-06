@@ -10,22 +10,23 @@ import kotlinx.coroutines.launch
 import ru.kavunov.runnotebook.MVVM.Repo.OnDataReadyCallbackPhoto
 import ru.kavunov.runnotebook.MVVM.Repo.PhotoRepo
 
-import ru.kavunov.runnotebook.bd.PhotoTable
+import ru.kavunov.runnotebook.bd.PhotoNoteBTable
 
 class PhotoViewModel(application: Application) : AndroidViewModel(application) {
 
     lateinit var photoRepo: PhotoRepo
 
 
-    val listphoto: LiveData<List<PhotoTable>> get() = _listphoto
-    var _listphoto = MutableLiveData<List<PhotoTable>>()
+    val listphoto: LiveData<List<PhotoNoteBTable>> get() = _listphoto
+    var _listphoto = MutableLiveData<List<PhotoNoteBTable>>()
 
     fun loadCateg(){
         CoroutineScope(Dispatchers.Main).launch() {
             photoRepo= PhotoRepo()
             photoRepo.refreshData(getApplication(), object: OnDataReadyCallbackPhoto {
-                override fun onDataReadyP(data: List<PhotoTable>) {
+                override fun onDataReadyP(data: List<PhotoNoteBTable>) {
                     _listphoto.postValue(data)
+
 
                 }
             }

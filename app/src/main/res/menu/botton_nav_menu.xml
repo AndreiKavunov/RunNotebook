@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/bot_text"
-        android:title="1"
+        android:title="заметки"
         android:icon="@drawable/ic_text_24"/>
     <item
         android:id="@+id/bot_photo"
-        android:title="1"
+        android:title="фото"
         android:icon="@drawable/ic_photos_24"/>
     <item
         android:id="@+id/bot_calc"
-        android:title="1"
+        android:title="калькулятор"
         android:icon="@drawable/ic_calc_24"/>
     <item
         android:id="@+id/bot_train"
-        android:title="1"
+        android:title="тренировки"
         android:icon="@drawable/ic_train_24"/>
 
 </menu>

@@ -8,12 +8,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ru.kavunov.runnotebook.MVVM.DetailNbRepo
-import ru.kavunov.runnotebook.MVVM.Model.NotebookModel
+import ru.kavunov.runnotebook.MVVM.Model.NotesModel
 import ru.kavunov.runnotebook.MVVM.OnDataReadyCallbackDetailNb
 import ru.kavunov.runnotebook.bd.NotebookTable
-import java.util.*
 
-class DetailNbViewModel(application: Application) : AndroidViewModel(application){
+class DetailNotesViewModel(application: Application) : AndroidViewModel(application){
 
     lateinit var detailNbRepo: DetailNbRepo
     val notebookTable: LiveData<NotebookTable> get() = _notebookTable
@@ -31,19 +30,19 @@ class DetailNbViewModel(application: Application) : AndroidViewModel(application
 
     fun insertNotebook(title: String, description: String, time: Long){
         CoroutineScope(Dispatchers.Main).launch() {
-            NotebookModel.insertData(getApplication(), title, description, time)
+            NotesModel.insertData(getApplication(), title, description, time)
         }
     }
 
     fun updatetNotebook(id: Long, title: String, description: String, time: Long){
         CoroutineScope(Dispatchers.Main).launch() {
-            NotebookModel.updateData(getApplication(), id, title, description, time)
+            NotesModel.updateData(getApplication(), id, title, description, time)
         }
     }
 
     fun deleteNotebook( id: Long){
         CoroutineScope(Dispatchers.Main).launch() {
-            NotebookModel.delete(getApplication(), id)
+            NotesModel.delete(getApplication(), id)
         }
     }
 }

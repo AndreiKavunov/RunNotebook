@@ -4,17 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back_notebook"
     tools:context=".TrainFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
         android:layout_weight="7"
+        android:background="@color/back_notebook"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,9 +22,9 @@
             android:id="@+id/day1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@color/purple_700"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@color/purple_700"
             android:text="TextView"
             android:textColor="@color/white" />
 
@@ -35,9 +32,9 @@
             android:id="@+id/day2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@color/purple_700"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@color/purple_700"
             android:text="TextView"
             android:textColor="@color/white" />
 
@@ -45,9 +42,9 @@
             android:id="@+id/day3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@color/purple_700"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@color/purple_700"
             android:text="TextView"
             android:textColor="@color/white" />
 
@@ -55,9 +52,9 @@
             android:id="@+id/day4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@color/purple_700"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@color/purple_700"
             android:text="TextView"
             android:textColor="@color/white" />
 
@@ -65,9 +62,9 @@
             android:id="@+id/day5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@color/purple_700"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@color/purple_700"
             android:text="TextView"
             android:textColor="@color/white" />
 
@@ -75,9 +72,9 @@
             android:id="@+id/day6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@color/purple_700"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@color/purple_700"
             android:text="TextView"
             android:textColor="@color/white" />
 
@@ -85,9 +82,9 @@
             android:id="@+id/day7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@color/purple_700"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@color/purple_700"
             android:text="TextView"
             android:textColor="@color/white" />
     </LinearLayout>

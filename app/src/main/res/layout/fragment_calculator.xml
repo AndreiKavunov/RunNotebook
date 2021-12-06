@@ -7,85 +7,98 @@
     android:background="@color/back_notebook">
 
 
-    <EditText
-        android:id="@+id/km"
-        android:layout_width="285dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:background="@android:drawable/editbox_background"
-        android:ems="10"
-        android:hint="Километры"
-        android:inputType="number"
-        android:paddingStart="5dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:background="@android:drawable/editbox_background"
-        android:id="@+id/metr"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/km"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/kilometr"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Метры"
-        android:inputType="number"
-        android:paddingStart="5dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/km"
-        app:layout_constraintStart_toStartOf="@+id/km"
-        app:layout_constraintTop_toBottomOf="@+id/km" />
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
-    <EditText
-        android:background="@android:drawable/editbox_background"
-        android:id="@+id/hour"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/metr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/metr"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Часы"
-        android:inputType="number"
-        android:paddingStart="5dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/metr"
-        app:layout_constraintStart_toStartOf="@+id/metr"
-        app:layout_constraintTop_toBottomOf="@+id/metr" />
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
-    <EditText
-        android:background="@android:drawable/editbox_background"
-        android:id="@+id/minutes"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/hour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hour"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Минуты"
-        android:inputType="number"
-        android:paddingStart="5dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/hour"
-        app:layout_constraintStart_toStartOf="@+id/hour"
-        app:layout_constraintTop_toBottomOf="@+id/hour" />
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
-    <EditText
-        android:background="@android:drawable/editbox_background"
-        android:id="@+id/second"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/minutes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/minute"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Секунды"
-        android:inputType="number"
-        android:paddingStart="5dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/minutes"
-        app:layout_constraintStart_toStartOf="@+id/minutes"
-        app:layout_constraintTop_toBottomOf="@+id/minutes" />
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/second"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/itog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="8dp"
         android:background="@android:drawable/editbox_background"
         android:text="TextView"
         android:textColor="@color/black"
@@ -93,15 +106,21 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/second" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
 
     <Button
         android:id="@+id/button_result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/editbox_background"
+        android:backgroundTint="@color/purple_700"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
         android:text="@string/Calculate"
-        app:layout_constraintEnd_toEndOf="@+id/second"
-        app:layout_constraintStart_toStartOf="@+id/second"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout6"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
         app:layout_constraintTop_toBottomOf="@+id/itog" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

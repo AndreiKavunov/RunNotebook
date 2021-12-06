@@ -7,13 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import ru.kavunov.runnotebook.OnClickAdapterPhoto
 import ru.kavunov.runnotebook.R
-import ru.kavunov.runnotebook.bd.PhotoTable
+import ru.kavunov.runnotebook.bd.PhotoNoteBTable
 import java.util.ArrayList
 
-class PhotoAdapter : RecyclerView.Adapter<PhotoHolder>() {
-    var photoList: MutableList<PhotoTable> = ArrayList()
+class PhotoAdapter(private val onClick: (Long) -> Unit) : RecyclerView.Adapter<PhotoAdapter.PhotoHolder>() {
+    var photoNoteBList: MutableList<PhotoNoteBTable> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.photo_item, parent, false)
@@ -21,42 +20,42 @@ class PhotoAdapter : RecyclerView.Adapter<PhotoHolder>() {
     }
 
     override fun onBindViewHolder(holder: PhotoHolder, position: Int) {
-        holder.bind(photoList[position])
+        holder.bind(photoNoteBList[position])
     }
 
     override fun getItemCount(): Int {
-        return photoList.size
+        return photoNoteBList.size
     }
 
-    fun initData(listPhoto: List<PhotoTable>?) {
-        if (listPhoto!=null){
-            photoList.clear()
-            photoList.addAll(listPhoto)
-            photoList.sortByDescending{it.dataTime}
+    fun initData(listPhotoNoteB: List<PhotoNoteBTable>?) {
+        if (listPhotoNoteB!=null){
+            photoNoteBList.clear()
+            photoNoteBList.addAll(listPhotoNoteB)
+            photoNoteBList.sortByDescending{it.dataTime}
             notifyDataSetChanged()
         }
     }
-}
-class PhotoHolder(item: View): RecyclerView.ViewHolder(item) {
-    var image = item.findViewById<ImageView>(R.id.photo_id)
-    fun bind(photoTable: PhotoTable){
-        try {
-            image.transitionName = photoTable.photoId.toString()
-            Log.d("tag1", image.transitionName)
-            if (photoTable.photo != "null") {
-                image.setImageURI(Uri.parse(photoTable.photo))
-            } else {
+
+    inner class PhotoHolder(item: View): RecyclerView.ViewHolder(item) {
+        var image = item.findViewById<ImageView>(R.id.photo_id)
+        fun bind(photoNoteBTable: PhotoNoteBTable){
+            try {
+                if (photoNoteBTable.photo != "null") {
+                    image.setImageURI(Uri.parse(photoNoteBTable.photo))
+                } else {
+                    image.setImageResource(R.drawable.no_photo)
+                }
+            }
+            catch (e: Exception) {
                 image.setImageResource(R.drawable.no_photo)
             }
-        }
-        catch (e: Exception) {
-            image.setImageResource(R.drawable.no_photo)
-        }
-        itemView.setOnClickListener { view ->
-            photoTable.photoId?.let {
-                (itemView.context as OnClickAdapterPhoto)?.transitionAdapterDetailPhoto(image, it)
+            itemView.setOnClickListener { view ->
+                photoNoteBTable.photoNbId?.let {
+                    onClick(it)
+                }
             }
-        }
 
+        }
     }
+
 }

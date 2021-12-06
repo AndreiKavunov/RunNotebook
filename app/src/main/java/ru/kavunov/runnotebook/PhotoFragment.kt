@@ -18,8 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 class PhotoFragment : Fragment() {
 
     private val photoViewModel: PhotoViewModel by viewModels()
-    private var onClickPhoto: OnClickPhoto? = null
-    private val adapterPhoto = PhotoAdapter()
+    private val adapterPhoto = PhotoAdapter(::transitionAdapterDetailPhoto)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,22 +33,25 @@ class PhotoFragment : Fragment() {
 
         view.findViewById<FloatingActionButton>(R.id.transition_detail_photo)?.apply {
             setOnClickListener{
-                onClickPhoto!!.transitionDetailPhoto()
+                transitionDetailPhoto()
             }
         }
              return view
     }
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnClickPhoto){
-            onClickPhoto = context
-        }
-    }
 
-    override fun onDetach() {
-        super.onDetach()
-        onClickPhoto = null
+    fun transitionDetailPhoto() {
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.main_cont_fragment, DetailPhotoFragment.newInstance("new", 111))
+            ?.addToBackStack("Photo")
+            ?.commit()
+        Frag.display = ConstanceFragment.DETAIL_PHOTO
     }
-
+    fun transitionAdapterDetailPhoto(id: Long) {
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.main_cont_fragment, DetailPhotoFragment.newInstance("change", id))
+            ?.addToBackStack("Photo")
+            ?.commit()
+        Frag.display = ConstanceFragment.DETAIL_PHOTO
+    }
 
 }

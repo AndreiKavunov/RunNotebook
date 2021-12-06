@@ -42,9 +42,12 @@ class DetailTrainingFragment : Fragment() {
         buttonSave.setOnClickListener {
             if(trainId != null) {
                 detailTrainingViewModel.updatetTrain(trainId!!, trainingT!!.dayOfWeek, trainingText.text.toString())
-                getActivity()?.supportFragmentManager?.beginTransaction()
+                activity?.supportFragmentManager?.popBackStack()
+                activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_cont_fragment, TrainFragment())
                     ?.commit()
+                Frag.display = ConstanceFragment.BOT_NAV
+
             }
         }
 

@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">RunNotebook</string>
+    <string name="app_name">Running Notes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title">Заготовок</string>
+    <string name="title">Заголовок</string>
     <string name="description">Описание</string>
     <string name="Monday">Понедельник</string>
     <string name="Tuesday">Вторник</string>
@@ -12,4 +12,12 @@
     <string name="Saturday">Суббота</string>
     <string name="Sunday">Воскресенье</string>
     <string name="Calculate">Рассчитать</string>
+    <string name="DeletePhoto">Удалить фотографию из списка?</string>
+    <string name="SaveDialog">Сохранить изменения</string>
+    <string name="Quit">Закрыть программу?</string>
+    <string name="kilometr">километров</string>
+    <string name="metr">метров</string>
+    <string name="hour">часов</string>
+    <string name="minute">минут</string>
+    <string name="second">секунд</string>
 </resources>

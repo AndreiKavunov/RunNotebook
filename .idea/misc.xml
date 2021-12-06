@@ -8,17 +8,27 @@
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/drawable-anydpi/ic_save.xml" value="0.1648148148148148" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/drawable/ic_home.xml" value="0.15462962962962962" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/custom_dialog_fragment.xml" value="0.14375" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/delete_dialog_fragment.xml" value="0.12083333333333333" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/dialog.xml" value="0.25052083333333336" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_calculator.xml" value="0.24722222222222223" />
-        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_detail_note.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_detail_note.xml" value="0.15985130111524162" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_detail_photo.xml" value="0.20833333333333334" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_detail_training.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_notebook.xml" value="0.24722222222222223" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_only_photo.xml" value="0.25052083333333336" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_photo.xml" value="0.24722222222222223" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/fragment_train.xml" value="0.24722222222222223" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/notebook_det_item.xml" value="0.2625" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/notebook_item.xml" value="0.23333333333333334" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/photo_det_item.xml" value="0.25052083333333336" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/photo_item.xml" value="0.20833333333333334" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/quit_dialog_fragment.xml" value="0.264" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/save_dialog_fragment.xml" value="0.12083333333333333" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/layout/test.xml" value="0.2" />
         <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/menu/botton_nav_menu.xml" value="0.24722222222222223" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18796296296296297" />
+        <entry key="..\:/AndroidProject/111/RunNotebook/app/src/main/res/mipmap-anydpi-v26/ic_my_launcher.xml" value="0.18796296296296297" />
       </map>
     </option>
   </component>
